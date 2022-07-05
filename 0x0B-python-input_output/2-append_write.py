@@ -1,25 +1,14 @@
 #!/usr/bin/python3
-# 2-read_lines.py
-# Carlos Barros <1543@holbertonschool.com>
-""" File name : 2-read_lines.py
-    Use the with statement
-    It is not allowed to import any module
-"""
+"""Defines a file-appending function."""
 
 
-def read_lines(filename="", nb_lines=0):
-    """read_lines reads n lines of a text file (UTF8) and prints it to stdout
+def append_write(filename="", text=""):
+    """Appends a string to the end of a UTF8 text file.
     Args:
-        filename (str): content of the file. Defaults to "".
-        nb_lines (int): number lines. Defaults to 0.
+        filename (str): The name of the file to append to.
+        text (str): The string to append to the file.
     Returns:
-        str: returns the number of lines of a text file
+        The number of characters appended.
     """
-    line_count = 0
-    with open(filename, 'r', encoding='utf-8') as f:
-        if nb_lines <= 0:
-            print(f.read(), end="")
-        for line in f:
-            if line_count < nb_lines:
-                print(line, end="")
-                line_count += 1
+    with open(filename, "a", encoding="utf-8") as f:
+        return f.write(text)
